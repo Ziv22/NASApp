@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import { usePromiseTracker } from "react-promise-tracker";
+import { BrowserRouter as Router} from 'react-router-dom'
+import Container  from './components/Container'
+import NavBar     from './components/NavBar';
+import React      from 'react';
 import './App.css';
 
 function App() {
+  const LoadingIndicator = props => {
+    const { promiseInProgress } = usePromiseTracker();
+      return (
+        promiseInProgress &&
+       <img src= "../assets/circle.png" alt=""/>
+     );  
+}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <NavBar/>
+        <LoadingIndicator/>
+        <Container/>
+      </Router>
     </div>
   );
 }
