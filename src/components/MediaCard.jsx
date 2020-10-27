@@ -46,7 +46,7 @@ function Description(props){
         return (
             <>
                 <p className="description-container">{props.description}</p>
-                <div><Link to="/Favourites"> Back </Link></div>
+                {props.location.includes("/Favourites/") && <div><Link to="/Favourites"> Back </Link></div>}
             </>
             )
     }

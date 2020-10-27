@@ -12,11 +12,13 @@ export default function Search(props) {
     const searchUrl = `https://images-api.nasa.gov//search?q=${search}`    
 
     const searchData = async () =>{
-        setIsLoading(true)
-        const data = await axios(searchUrl)
-        const filteredData = data.data.collection.items
-        setData(filteredData)
-        setIsLoading(false)
+        if(search){
+            setIsLoading(true)
+            const data = await axios(searchUrl)
+            const filteredData = data.data.collection.items
+            setData(filteredData)
+            setIsLoading(false)
+        }
     }
 
     const searchEnter = e =>{
@@ -38,23 +40,24 @@ export default function Search(props) {
                     />
             </div>
             <div id="results-container">
-                {data.length === 0 && 
-                <Fragment>
-                    <img id="image-place-holder" src={stars} alt=""/>
-                    <h1 id="image-place-holder-text">No Data Yet</h1>
-                </Fragment>
-                    }
+                {
+                    data.length === 0 && 
+                    <Fragment>
+                        <img id="image-place-holder" src={stars} alt=""/>
+                        <h1 id="image-place-holder-text">No Data Yet</h1>
+                    </Fragment>
+                }
                 {
                     isLoading 
-                        ? <Loader/>
-                        : data.map(d=> 
-                            <MediaCard 
-                                key={d.data[0].nasa_id}
-                                title={d.data[0].title}
-                                description={d.data[0].description}
-                                imgUrl={d.links ? d.links[0].href : null}
-                                addToLiked={props.addToLiked}
-                            />
+                    ? <Loader/> 
+                    : data.map(d=> 
+                                <MediaCard 
+                                    key={d.data[0].nasa_id}
+                                    title={d.data[0].title}
+                                    description={d.data[0].description}
+                                    imgUrl={d.links ? d.links[0].href : null}
+                                    addToLiked={props.addToLiked}
+                                />
                     ) 
                 }
             </div>
