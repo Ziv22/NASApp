@@ -8,6 +8,7 @@ const url = 'http://localhost:8080/images'
 export default function Favourites(props) {
     const [favourites,setFavourites] = useState([])
     const [isLoading,setIsLoading] = useState(false)
+
     useEffect(()=>{
         (async ()=>{
             try{
@@ -21,6 +22,7 @@ export default function Favourites(props) {
                 console.log(err);
             }
         })()
+
     },[])
 
     return(
