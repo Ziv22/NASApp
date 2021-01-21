@@ -33,9 +33,6 @@ export default function Container() {
 
     return( 
     <div id="container">
-        {/* <video autoPlay muted loop id="background-video">
-            <source src={backgroundVideo} type="video/webm"></source>
-         </video> */}
         <Route path="/Home" exact render={()=> <Home />}/>
         <Route path="/Search" exact render={()=> <Search addToLiked={addToLiked} removeFromLiked={removeFromLiked} />}/>
         <Route path="/Favourites" exact render={()=> <Favourites addToLiked={addToLiked} removeFromLiked={removeFromLiked} />}/>

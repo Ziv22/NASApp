@@ -14,8 +14,8 @@ function App() {
      );  
 }
   return (
-    <div className="App">
       <Router>
+    <div className="App">
         <NavBar/>
         <LoadingIndicator/>
         <Container/>
