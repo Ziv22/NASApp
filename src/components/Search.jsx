@@ -42,10 +42,10 @@ export default function Search(props) {
             <div id="results-container">
                 {
                     data.length === 0 && 
-                    <Fragment>
+                    <>
                         <img id="image-place-holder" src={stars} alt=""/>
                         <h1 id="image-place-holder-text">No Data Yet</h1>
-                    </Fragment>
+                    </>
                 }
                 {
                     isLoading 

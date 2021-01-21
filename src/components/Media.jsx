@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Media(props) {
@@ -8,11 +8,11 @@ export default function Media(props) {
             <img className="card-image" src={props.imgUrl} alt=""/>
         </Link>
         )
-    } else if(props.location === "/Home"){         
-        // if(props.imgUrl.includes("youtube")){
+    } else if(props.location === "/Home"){   
+        if(props.imgUrl && props.imgUrl.includes("youtube")){
             return <iframe className="video-image" src={props.imgUrl}></iframe>
-        // }   
-        // return <img className="card-image" src={props.imgUrl} alt=""/>
+        }   
+        return <img className="card-image" src={props.imgUrl} alt=""/>
     }else{
         return <img className="card-image" src={props.imgUrl} alt=""/>
     }

@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState} from 'react';
 import MediaCard from './MediaCard';
 import Loader from './Loader';
+import stars from '../assets/stars.jpg'
 const url = 'http://localhost:8080/images'
 
 export default function Favourites(props) {
@@ -24,6 +25,13 @@ export default function Favourites(props) {
 
     return(
         <div className="Favourites">
+            {
+                favourites.length === 0 && 
+                <>
+                    <img id="image-place-holder" src={stars} alt=""/>
+                    <h1 id="image-place-holder-text">No Data Yet</h1>
+                </>
+            }
             {isLoading 
                 ? <Loader/> 
                 : favourites.map(f => 

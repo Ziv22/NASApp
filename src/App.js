@@ -15,12 +15,12 @@ function App() {
 }
   return (
       <Router>
-    <div className="App">
-        <NavBar/>
-        <LoadingIndicator/>
-        <Container/>
+        <div className="App">
+            <NavBar/>
+            <LoadingIndicator/>
+            <Container/>
+        </div>
       </Router>
-    </div>
   );
 }
 
