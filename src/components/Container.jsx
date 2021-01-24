@@ -5,9 +5,10 @@ import Home       from './Home'
 import axios from 'axios'
 import React from 'react';
 
-
-
 export default function Container() {
+    const url = 'http://localhost:8080/image'
+    const refresh = () => window.location.reload(false);
+
     const addToLiked = async data =>{
         const image = {
             imgUrl:      data.imgUrl,
@@ -15,7 +16,7 @@ export default function Container() {
             description: data.description
         }
         try{
-            await axios.post("http://localhost:8080/image",image)
+            await axios.post(url,image)
         }
         catch(err){
             console.log(err)
@@ -23,7 +24,8 @@ export default function Container() {
     }
     const removeFromLiked = async id =>{
         try{
-            await axios.delete(`http://localhost:8080/image/${id}`)
+            await axios.delete(`${url}/${id}`)
+            refresh()        
         }
         catch(err){
             console.log(err)

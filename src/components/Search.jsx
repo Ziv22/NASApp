@@ -41,24 +41,23 @@ export default function Search(props) {
             </div>
             <div id="results-container">
                 {
-                    data.length === 0 && 
-                    <>
-                        <img id="image-place-holder" src={stars} alt=""/>
-                        <h1 id="image-place-holder-text">No Data Yet</h1>
-                    </>
-                }
-                {
                     isLoading 
                     ? <Loader/> 
-                    : data.map(d=> 
-                                <MediaCard 
-                                    key={d.data[0].nasa_id}
-                                    title={d.data[0].title}
-                                    description={d.data[0].description}
-                                    imgUrl={d.links ? d.links[0].href : null}
-                                    addToLiked={props.addToLiked}
-                                />
-                    ) 
+                    : data.length === 0 
+                        ?   <>
+                                <img id="image-place-holder" src={stars} alt=""/>
+                                <h1 id="image-place-holder-text">No results</h1>
+                            </>
+                        
+                        :data.map(d=> 
+                                    <MediaCard 
+                                        key={d.data[0].nasa_id}
+                                        title={d.data[0].title}
+                                        description={d.data[0].description}
+                                        imgUrl={d.links ? d.links[0].href : null}
+                                        addToLiked={props.addToLiked}
+                                    />
+                        ) 
                 }
             </div>
         </div>
