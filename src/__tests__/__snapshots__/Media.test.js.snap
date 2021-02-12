@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Media with location props equals to /Home and has a link of a video 1`] = `
+<iframe
+  className="video-image"
+  src="https://www.youtube.com/embed/6AviDjR9mmo"
+/>
+`;
+
+exports[`Media with location props equals to /Home and has a link of an image 1`] = `
+<img
+  alt=""
+  className="card-image"
+  src="https://www.sciencenewsforstudents.org/wp-content/uploads/2020/10/102320_MT_moon-brief_feat-1028x579.jpg"
+/>
+`;
+
+exports[`Media with no location props 1`] = `
+<img
+  alt=""
+  className="card-image"
+  src="https://www.sciencenewsforstudents.org/wp-content/uploads/2020/10/102320_MT_moon-brief_feat-1028x579.jpg"
+/>
+`;
